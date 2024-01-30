@@ -20,17 +20,10 @@ $(NAME): $(OBJECTS)
 
 clean:
 	-@$(RM) $(OBJECTS) $(DEPENDS)
-	-@$(RM) $(OBJECTS)
 	@echo "Everything is Cleaned !"
-
-fclean: clean
-	-@$(RM) $(NAME)
-
-run: all
-	./$(NAME)
 
 re: clean all
 
-.PHONY: re run fclean clean all
+.PHONY: re clean all
 
 -include $(DEPENDS)
