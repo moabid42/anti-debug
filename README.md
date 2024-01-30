@@ -17,3 +17,12 @@ To clean and rebuild the project run:
 ```sh
 make re
 ```
+
+## Progress
+
+- :white_check_mark: Implenting the Tracer and the Tracee.
+- :white_large_square: Building a custom libc with modified syscalls.
+- :white_large_square: regs/args scrambling.
+- :white_large_square: args encrypting.
+- :white_large_square: dynamic randomisation of syscall numbers.
+- :white_large_square: Compilying `ptrace` code with custom built OLLVM.
