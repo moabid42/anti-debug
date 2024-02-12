@@ -7,7 +7,7 @@ program_start(void)
 
     if (child_pid < 0)
     {
-        dprintf(2, "Fork failed.\n");
+        printf("Fork failed.\n");
         return (true);
     }
     if (child_pid == 0)

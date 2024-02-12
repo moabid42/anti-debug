@@ -1,3 +1,3 @@
 #pragma once
 
-void myPrintf(char* str);
+// void myPrintf(char* str);
