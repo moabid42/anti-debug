@@ -21,7 +21,7 @@ make re
 ## Progress
 
 - :white_check_mark: Implenting the Tracer and the Tracee.
-- :white_large_square: Building a custom libc with modified syscalls.
+- :white_check_mark: Building a custom libc with modified syscalls.
 - :white_large_square: regs/args scrambling.
 - :white_large_square: args encrypting.
 - :white_large_square: dynamic randomisation of syscall numbers.
