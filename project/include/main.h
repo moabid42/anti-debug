@@ -15,7 +15,6 @@
 // My Includes
 #include "tracee.h"
 #include "tracer.h"
-#include "syscall_funcs.h"
 
 // SYSCALL MAPPING
 #define SYS_CUSTOM_write 0x1337
