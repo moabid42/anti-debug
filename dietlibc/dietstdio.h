@@ -84,6 +84,7 @@ int __libc_close(int fd);
 int __libc_open(const char*fn,int flags,...);
 ssize_t __libc_read(int fd,void*buf,size_t len);
 ssize_t __libc_write(int fd,const void*buf,size_t len);
+
 #endif
 
 FILE *fopen_unlocked(const char *path, const char *mode) __THROW;
