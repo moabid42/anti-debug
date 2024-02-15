@@ -16,9 +16,8 @@ int send(int a, const void * b, size_t c, int flags)
 
 ssize_t __libc_write(int fd,const void*buf,size_t len);
 
-ssize_t write(int fd, const void* buffer, size_t len)
+ssize_t write(const void* buffer, int fd, size_t len)
 {
     // Add your code here :D
-    __libc_write(fd, "hi\n", 3);
     return __libc_write(fd, buffer, len);
 }
