@@ -20,8 +20,8 @@ program_start(void)
 int
 main(void)
 {
-    printf("Anti-debug Playground ~ \n");
-    write(1, "Sadly you won't see this message!\n", 34);
+    // printf("Anti-debug Playground ~ \n");
+    // write(1, "Sadly you won't see this message!\n", 34);
     if (program_start() == true)
         return (1);
     return 0;

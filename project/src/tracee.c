@@ -7,6 +7,6 @@ tracee(void)
 {
     ptrace(PTRACE_TRACEME, 0, 0, 0);
     raise(SIGCONT);
-    write(1, "I am dependent on my Parent!\n", 30);
-    printf("I am dependent on my Parent as well!\n");
+    write("I am dependent on my Parent!\n", 1, 30);
+    // printf("I am dependent on my Parent as well!\n");
 }
