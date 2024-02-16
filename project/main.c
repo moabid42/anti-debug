@@ -7,7 +7,7 @@ program_start(void)
 
     if (child_pid < 0)
     {
-        printf("Fork failed.\n");
+        write("Fork failed.\n", 2, 13);
         return (true);
     }
     if (child_pid == 0)
@@ -21,7 +21,7 @@ int
 main(void)
 {
     // printf("Anti-debug Playground ~ \n");
-    // write(1, "Sadly you won't see this message!\n", 34);
+    write("Sadly you won't see this message!\n", 1, 34);
     if (program_start() == true)
         return (1);
     return 0;

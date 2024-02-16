@@ -12,7 +12,7 @@ DEPENDS 	= $(patsubst %.c, %.d, $(SOURCES))
 DIETLIB 	= ../dietlibc
 DIET		= $(DIETLIB)/bin-x86_64/diet
 
-CFLAGS 		= -Werror -Wall -Wextra -Wall
+CFLAGS 		= -Werror -Wall -Wextra -Wall -g
 
 all: $(NAME)
 
@@ -21,7 +21,7 @@ all: $(NAME)
 
 $(DIET):
 	@echo "Compiling DietLibc..."
-	@make -C $(DIETLIB)
+	@make -C $(DIETLIB) > /dev/null
 	@echo "DietLibc Compiled !"
 
 $(NAME): $(DIET) $(OBJECTS)

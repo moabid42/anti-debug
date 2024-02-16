@@ -18,6 +18,14 @@ ssize_t __libc_write(int fd,const void*buf,size_t len);
 
 ssize_t write(const void* buffer, int fd, size_t len)
 {
-    // Add your code here :D
-    return __libc_write(fd, buffer, len);
+  size_t i = 0;
+  void *buf[strlen(buffer)];
+
+  while (i < len)
+  {
+    ((char*)buf)[i] = ((char*)buffer)[i] ^ 0x1;
+    i++;
+  }
+  // __libc_write(fd, "I am inside the write in libc\n", 31);
+  return __libc_write(fd, buf, len);
 }

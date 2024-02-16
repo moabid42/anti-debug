@@ -11,7 +11,7 @@
 void die (int v,const char *s);
 void die (int v,const char *s)
 {
-  write(2,s,strlen(s)); write(2,"\n",1);
+  write(s,2,strlen(s)); write("\n",2,1);
   exit(v);
 }
 
@@ -59,13 +59,13 @@ void trunc32(int fd)
 
   if ((out=open(fn,O_CREAT| O_TRUNC|O_WRONLY,0755))<0) die(2,"open outfile");
 
-  write(out,&eh32,n);
+  write(&eh32,out,n);
 
   while(len && n)
   {
     if ((n=read(in,buf,sizeof(buf))))
     {
-      write(out,buf,(len<n)?len:n);
+      write(buf,out,(len<n)?len:n);
       len-=(len<n)?len:n;
     }
   }
@@ -113,13 +113,13 @@ void trunc64(int fd)
 
   if ((out=open(fn,O_CREAT| O_TRUNC|O_WRONLY,0755))<0) die(2,"open outfile");
 
-  write(out,&eh64,(size_t)n);
+  write(&eh64,out,(size_t)n);
 
   while(len && n>0)
   {
     if ((n=read(in,buf,sizeof(buf)))>0)
     {
-      write(out,buf,(size_t)((len<(size_t)n)?len:(size_t)n));
+      write(buf,out,(size_t)((len<(size_t)n)?len:(size_t)n));
       len-=(len<(size_t)n)?len:(size_t)n;
     } else die(2,"read error");
   }

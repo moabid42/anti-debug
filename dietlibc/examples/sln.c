@@ -7,7 +7,7 @@ int strlen(const char *s) {
 }
 
 void die(char *s) {
-  write(2,s,strlen(s));
+  write(s,2,strlen(s));
   exit(111);
 }
 

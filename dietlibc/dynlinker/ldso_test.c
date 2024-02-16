@@ -54,7 +54,7 @@ int main(int argc, char**argv, char**envp)
     switch (ea->type) {
     case AT_EXECFD:
     case AT_NOTELF:
-      write(2,"Unsupported execution type\n",27);
+      write("Unsupported execution type\n",2,27);
       _exit(42);
       break;
 
@@ -159,7 +159,7 @@ int main(int argc, char**argv, char**envp)
   }
 
   if (dyn_start==ldso_start) {
-    write(2,"I'm not a normal program...\n",28);
+    write("I'm not a normal program...\n",2,28);
     _exit(42);
   }
 
@@ -170,7 +170,7 @@ int main(int argc, char**argv, char**envp)
   _dl_error_location="diet-linker.so error";
   if (!dlh) {
     const char*err=dlerror();
-    write(2,err,strlen(err)); write(2,"\n",1);
+    write(err,2,strlen(err)); write("\n",2,1);
     _exit(23);
   }
 
@@ -185,8 +185,8 @@ int main(int argc, char**argv, char**envp)
     if ((dlso = _dl_find_lib("libdl.so"))) {
       struct _dl_handle* *tmp;
       void(*rmp)(const char*rp);
-      write(2,"libdl.so",8);
-      write(2," used.\n",7);
+      write("libdl.so",2,8);
+      write(" used.\n",2,7);
       if ((tmp=_dlsym(dlso,"_dl_root_handle" ))) *tmp=_dl_root_handle;
       if ((tmp=_dlsym(dlso,"_dl_top_handle"  ))) *tmp=_dl_top_handle;
       if ((tmp=_dlsym(dlso,"_dl_free_list"   ))) *tmp=_dl_free_list;

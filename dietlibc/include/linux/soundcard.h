@@ -1302,10 +1302,10 @@ extern int OSS_write_patch2(int fd, unsigned char *buf, int len);
 #else
 #   define SEQ_WRPATCH(patchx, len) \
 		{if (_seqbufptr) SEQ_DUMPBUF();\
-		 if (write(seqfd, (char*)(patchx), len)==-1) \
+		 if (write((char*)(patchx), seqfd, len)==-1) \
 		    perror("Write patch: /dev/sequencer");}
 #   define SEQ_WRPATCH2(patchx, len) \
-		(SEQ_DUMPBUF(), write(seqfd, (char*)(patchx), len))
+		(SEQ_DUMPBUF(), write((char*)(patchx), seqfd, len))
 #endif
 
 #endif

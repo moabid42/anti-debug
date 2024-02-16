@@ -232,7 +232,7 @@ int main(int argc,char *argv[]) {
 	  strcpy(shortplatform,"mipsel");
     }
     if (printpath) {
-      write(1,platform,strlen(platform));
+      write(platform,1, strlen(platform));
       return 0;
     }
     strcat(dashL,platform);
