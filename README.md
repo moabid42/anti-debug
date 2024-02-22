@@ -23,6 +23,6 @@ make re
 - :white_check_mark: Implenting the Tracer and the Tracee.
 - :white_check_mark: Building a custom libc with modified syscalls.
 - :white_check_mark: regs/args scrambling.
-- :white_large_square: args encrypting.
-- :white_large_square: dynamic randomisation of syscall numbers.
+- :white_check_mark: args encrypting.
+- :white_check_mark: dynamic randomisation of syscall numbers.
 - :white_large_square: Compilying `ptrace` code with custom built OLLVM.
