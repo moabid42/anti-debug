@@ -11,10 +11,3 @@ tracee(void)
     // write("I am dependent on my Parent, scrambled, so I will work!\n", 1, 56);
     write("ccccccc\n", 1, 9);
 }
-
-
-// Anti
-// syscalls
-// OS
-
-// HW

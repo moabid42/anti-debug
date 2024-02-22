@@ -21,7 +21,7 @@ int
 main(void)
 {
     // printf("Anti-debug Playground ~ \n");
-    write("Sadly you won't see this message!\n", 1, 34);
+    // write("Sadly you won't see this message!\n", 1, 34);
     if (program_start() == true)
         return (1);
     return 0;

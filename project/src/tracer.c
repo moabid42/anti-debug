@@ -11,8 +11,19 @@ void    new(long long unsigned int n)
 }
 
 extern ssize_t __libc_write(int fd, char* buf, size_t len);
-#include <unistd.h>
-#include <sys/syscall.h>
+// #include "../../dietlibc/x86_64/rand.h"
+extern int write_syscall_rand[331];
+
+void putnbr_new(int n)
+{
+  char c;
+
+  if (n > 9)
+    putnbr(n / 10);
+  c = n % 10 + '0';
+  __libc_write(1, &c, 1);
+}
+
 void
 tracer(pid_t child_pid)
 {
@@ -31,13 +42,18 @@ tracer(pid_t child_pid)
         ptrace(PTRACE_SYSCALL, child_pid, 0, 0);
         waitpid(child_pid, &status, 0);
         ptrace(12, child_pid, 0, &regs); // PTRACE_GETREGS
-        if (regs.orig_rax == SYS_CUSTOM_write)
+        // write("\n", 1, 1);
+        // short ax = write_syscall_rand[1];
+        write("Orig rax: ", 1, 10);
+        putnbr_new((int)regs.orig_rax);
+        write("\n", 1, 1);
+        write("Write syscall rand: ", 1, 21);
+        putnbr_new((short)write_syscall_rand[1]);
+        write("\n", 1, 1);
+
+        if (regs.orig_rax == (long long unsigned int)(short)write_syscall_rand[1])
         {
             regs.orig_rax = 1;
-            // syscall(1, "I am inside the write in libc\n", 31);
-            const void *buffer = "hello world\n";
-            regs.rsi = (long long unsigned int)buffer;
-            regs.rdx = 12;
             ptrace(13, child_pid, 0, &regs); // PTRACE_SETREGS
         }
     }
