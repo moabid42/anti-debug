@@ -1,5 +1,5 @@
 #define __NR_read                                0
-#define __NR_write                               0x1337
+#define __NR_write                               1
 #define __NR_open                                2
 #define __NR_close                               3
 #define __NR_stat                                4

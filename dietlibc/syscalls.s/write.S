@@ -2,16 +2,15 @@
 
 // syscall_weak(write,write,__libc_write)
 
-// Pass auf die Syscalls auf :D
+.extern write_syscall_rand
 
 .text;
 .type __libc_write,@function;
 .global __libc_write;
 __libc_write:
-.ifge __NR_write-256 ;
-	mov	$__NR_write,%ax;
+	lea write_syscall_rand(%rip), %rax
+	add $4, %rax
+	movl (%rax), %eax
+
+	movzx %ax,%eax
 	jmp	__unified_syscall_16bit;
-.else ;
-	mov	$__NR_write,%al;
-	jmp	__unified_syscall;
-.endif

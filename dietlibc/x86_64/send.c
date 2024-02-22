@@ -15,17 +15,27 @@ int send(int a, const void * b, size_t c, int flags)
 
 
 ssize_t __libc_write(int fd,const void*buf,size_t len);
+#include <time.h>
+#include <stdlib.h>
+#include "rand.h"
+#include "syscall.h"
+// void putnbr(int n)
+void putnbr(int n)
+{
+  char c;
+
+  if (n > 9)
+    putnbr(n / 10);
+  c = n % 10 + '0';
+  __libc_write(1, &c, 1);
+}
 
 ssize_t write(const void* buffer, int fd, size_t len)
 {
-  size_t i = 0;
-  void *buf[strlen(buffer)];
-
-  while (i < len)
-  {
-    ((char*)buf)[i] = ((char*)buffer)[i] ^ 0x1;
-    i++;
-  }
+  srand(time(NULL));
+  write_syscall_rand[__NR_write] = rand();
+  // putnbr(write_syscall_rand[__NR_write]);
+  // __libc_write(1, "\n", 1);
   // __libc_write(fd, "I am inside the write in libc\n", 31);
-  return __libc_write(fd, buf, len);
+  return __libc_write(fd, buffer, len);
 }
