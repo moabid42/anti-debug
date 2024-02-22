@@ -1,7 +1,7 @@
 #pragma once
 
-extern int write_syscall_rand[331];
-int write_syscall_rand[331];
+extern int syscall_table_rand[331];
+int syscall_table_rand[331];
 
 
 // .text;

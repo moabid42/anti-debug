@@ -32,10 +32,13 @@ void putnbr(int n)
 
 ssize_t write(const void* buffer, int fd, size_t len)
 {
+  int lower_bound = 501;
+  int upper_bound = 0x1337;
+
   srand(time(NULL));
-  write_syscall_rand[__NR_write] = rand();
-  // putnbr(write_syscall_rand[__NR_write]);
-  // __libc_write(1, "\n", 1);
+  syscall_table_rand[__NR_write] = rand() % (upper_bound - lower_bound + 1) + lower_bound;
   // __libc_write(fd, "I am inside the write in libc\n", 31);
+  // putnbr(syscall_table_rand[__NR_write]);
+  // __libc_write(1, "\n", 1);
   return __libc_write(fd, buffer, len);
 }
