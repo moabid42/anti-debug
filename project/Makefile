@@ -12,7 +12,7 @@ DEPENDS 	= $(patsubst %.c, %.d, $(SOURCES))
 DIETLIB 	= ../dietlibc
 DIET		= $(DIETLIB)/bin-x86_64/diet
 # strip the binary
-CFLAGS 		= -Werror -Wall -Wextra -Wall -g
+CFLAGS 		= -Werror -Wall -Wextra -Wall -s
 
 all: $(NAME)
 

@@ -44,16 +44,13 @@ tracer(pid_t child_pid)
         ptrace(12, child_pid, 0, &regs); // PTRACE_GETREGS
 
         short ax = syscall_table_rand[1];
-        // if (regs.orig_rax > 400)
-        // {
-            // write("\n", 1, 1);
-            // write("Orig rax: ", 1, 10);
-            // putnbr_new((int)regs.orig_rax);
-            // write("\n", 1, 1);
-            // write("Write syscall rand: ", 1, 21);
-            // putnbr_new((long long unsigned int)ax);
-            // write("\n", 1, 1);
-        // }
+        // write("\n", 1, 1);
+        // write("Orig rax: ", 1, 10);
+        // putnbr_new((int)regs.orig_rax);
+        // write("\n", 1, 1);
+        // write("Write syscall rand: ", 1, 21);
+        // putnbr_new((long long unsigned int)ax);
+        // write("\n", 1, 1);
         if (regs.orig_rax == (long long unsigned int)ax)
         {
             regs.orig_rax = 1;

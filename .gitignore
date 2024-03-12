@@ -1,7 +1,7 @@
 # Output
 anti
 .gdb_history
-../dietlibc/bin-x86_64/*
+dietlibc/bin-x86_64/*
 
 # Prerequisites
 *.d

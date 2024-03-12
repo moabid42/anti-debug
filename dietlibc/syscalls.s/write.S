@@ -13,6 +13,4 @@ __libc_write:
 	movl (%rax), %eax
 
 	movzx %ax,%eax
-	# xor %al, %al
-
 	jmp	__unified_syscall_16bit;
