@@ -1,6 +1,6 @@
 ## Anti-debug
 
-This Project is about creating a challenging and an extremely hard to debug binary, while leveraging multiple anti-reversing techniques including a custom made anti-debugger.
+This Project is about researching new anti-debugging mechanims, named HOP (Hook oriented programming). For more information, please check the paper.
 
 ## Usage
 To build the binary run :
